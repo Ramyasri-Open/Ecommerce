@@ -1,0 +1,100 @@
+<!-- <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <tr *ngFor="let order of orderData">
+     Position Column 
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>ID</th>
+      <td mat-cell *matCellDef="let element">{{ order.id }}</td>
+    </ng-container>
+
+     Name Column 
+    <ng-container matColumnDef="quantity">
+      <th mat-header-cell *matHeaderCellDef>QUANTITY</th>
+      <td mat-cell *matCellDef="let element">{{ order.quantity }}</td>
+    </ng-container>
+
+     Weight Column
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef>TITLE</th>
+      <td mat-cell *matCellDef="let element">{{ order.title }}</td>
+    </ng-container>
+
+    Symbol Column 
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef>DATE</th>
+      <td mat-cell *matCellDef="let element">{{ currentDate }}</td>
+    </ng-container>
+  </tr>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table> -->
+
+<div>
+  <ng-container *ngIf="orderData?.length != 0">
+    <h1 style="font-size: 40px" class="flex justify-center ml-5 mt-3 font-bold">
+      My Orders
+    </h1>
+    <table>
+      <thead class="text-purple-900 font-semibold shadow-lg">
+        <tr style="font-size: 25px" class="flex mx-4 justify-between">
+          <th>ID</th>
+          <th>QUANTITY</th>
+          <th>TITLE</th>
+          <th>DATE</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of orderData">
+          <div class="text-purple-900 flex mx-4 justify-between shadow-md my-5">
+            <td>{{ order.id }}</td>
+            <td>{{ order.quantity }}</td>
+            <td>{{ order.title }}</td>
+            <td>{{ currentDate }}</td>
+          </div>
+        </tr>
+      </tbody>
+    </table>
+    <button
+      class="border-2 border-purple-900 mt-2 bg-purple-900 text-white w-40 py-2 rounded-3xl hover:bg-transparent hover:text-purple-900 font-semibold"
+      (click)="back()"
+    >
+      Go Back
+    </button>
+  </ng-container>
+</div>
+<div>
+  <ng-container *ngIf="orderData?.length == 0">
+    <div style="height: 100%">
+      <div
+        style="
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          text-align: center;
+        "
+        class="absolute"
+      >
+        <img
+          src="../../assets/images/order.png"
+          style="
+            text-decoration: none;
+            border: none;
+            outline: none;
+            height: 300px;
+            width: 500px;
+            margin: 20px 0px;
+          "
+          class="bg-inherit"
+          alt=""
+        />
+        <h4 style="font-weight: 200" class="mt-5">No Orders!</h4>
+        <button
+          routerLink="/product"
+          class="border-2 border-purple-900 mt-2 bg-purple-900 text-white w-40 py-2 rounded-3xl hover:bg-transparent hover:text-purple-900 font-semibold"
+        >
+          Order Now
+        </button>
+      </div>
+    </div>
+  </ng-container>
+</div>

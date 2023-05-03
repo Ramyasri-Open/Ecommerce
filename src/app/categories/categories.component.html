@@ -1,0 +1,37 @@
+<app-head></app-head>
+<div class="flex">
+  <div style="height: 89vh" class="w-64 mt-0 shadow-md">
+    <div class="mt-6 ml-4 cursor-pointer border-1 border-purple-900">
+      <mat-form-field appearance="fill">
+        <mat-label class="text-purple-900">Select Categories</mat-label>
+        <mat-select disableRipple>
+          <div class="item hover:text-purple-900">
+            <div (click)="allProducts()">
+              <mat-option value="1">All Products</mat-option>
+            </div>
+            <!-- <div (click)="selectFashions()">
+              <mat-option value="2">Fashions</mat-option>
+            </div>
+            <div (click)="filter('jewelery')">
+              <mat-option value="3">Jewelery</mat-option>
+            </div>
+            <div (click)="filter('electronics')">
+              <mat-option value="4">Electronics</mat-option> -->
+            <!-- </div> -->
+          </div>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="mt-8">
+    <img
+      src="../../assets/images/shopping.jpeg"
+      class="ml-10"
+      style="width: 90%; height: 100%"
+      alt=""
+    />
+  </div>
+</div>
+
+<!-- <div class="" style="margin-left: 600px">hello</div> -->

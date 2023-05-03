@@ -1,0 +1,118 @@
+<app-head></app-head>
+<!-- <app-categories></app-categories> -->
+<div class="flex" style="height: 100%">
+  <div style="height: 100%" class="w-64 mt-0 shadow-md">
+    <div class="mt-6 ml-3 cursor-pointer border-1 border-purple-900">
+      <mat-form-field appearance="fill">
+        <mat-label class="text-purple-900">All Products</mat-label>
+        <mat-select disableRipple>
+          <div class="item hover:text-purple-900">
+            <!-- <div (click)="allProducts()">
+              <mat-option value="1">All Products</mat-option>
+            </div> -->
+            <!-- <div (click)="selectFashions()">
+              <mat-option value="1">Fashions</mat-option>
+            </div> -->
+            <div (click)="filter('men\'s clothing')">
+              <mat-option value="2">Men's Wear</mat-option>
+            </div>
+            <div (click)="filter('women\'s clothing')">
+              <mat-option value="3">Women's Wear</mat-option>
+            </div>
+            <div (click)="filter('jewelery')">
+              <mat-option value="4">Jewelery</mat-option>
+            </div>
+            <div (click)="filter('electronics')">
+              <mat-option value="5">Electronics</mat-option>
+            </div>
+          </div>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="ml-10 mt-5">
+    <div class="grid lg:grid-cols-3 gap-10">
+      <ng-container *ngFor="let item of filterCategory">
+        <!-- <div class="w-80">
+              <img src="{{ item.image }}" alt="" />
+              <h5>{{ item.title }}</h5>
+              <p class="text-red-700">₹ {{ item.price }}</p>
+              <button class="border-2 bg-purple-900 text-white rounded-3xl p-2">
+                Add to Cart
+              </button>ml-10 mt-5
+            </div> -->
+
+        <!-- <mat-card class="example-card">
+          <mat-card-header>
+            <mat-card-title-group>
+              <mat-card-title>{{ item.title }}</mat-card-title>
+              <mat-card-subtitle class="text-red-700 font-semibold"
+                >$ {{ item.price }}</mat-card-subtitle
+              >
+              <img mat-card-lg-image src="{{ item.image }}" />
+            </mat-card-title-group>
+          </mat-card-header>
+          <button
+            class="border-2 bg-purple-900 text-white rounded-3xl w-40 p-2"
+            (click)="addToCart(item)"
+          >
+            Add to Cart
+          </button>
+          <mat-card-content> </mat-card-content>
+        </mat-card> -->
+        <div class="shadow-lg rounded-md cursor-pointer">
+          <div routerLink="/product/productDetails/{{ item.id }}">
+            <div class="flex">
+              <div>
+                <img
+                  class="ml-4"
+                  style="
+                    width: 200px;
+                    height: 200px;
+                    margin-bottom: 15px;
+                    transition: 0.3s ease-in-out;
+                  "
+                  src="{{ item.image }}"
+                  alt=""
+                />
+              </div>
+              <div class="mt-24 ml-10">
+                <!-- <h5
+                style="
+                  white-space: nowrap;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                  max-width: 100ch;
+                "
+              >
+                {{ item.title }}
+              </h5> -->
+                <h5>{{ item.title }}</h5>
+                <p class="text-red-700 mt-3">$ {{ item.price }}</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- <div class="flex items-center justify-between"> -->
+          <div style="margin-left: 70%">
+            <button
+              id="addToCart"
+              (click)="addToCart(item)"
+              [disabled]="clickedItems.get(item.id)"
+              [ngClass]="{ 'disabled-button': clickedItems.get(item.id) }"
+              class="border-2 bg-purple-900 text-white rounded-3xl p-2 mb-8"
+            >
+              Add to Cart
+              <!-- <mat-icon
+                aria-hidden="false"
+                aria-label="Example home icon"
+                fontIcon="shopping_cart" 
+              ></mat-icon> -->
+            </button>
+          </div>
+          <!-- </div> -->
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>

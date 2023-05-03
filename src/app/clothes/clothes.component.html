@@ -1,0 +1,55 @@
+<app-head></app-head>
+<div class="flex" style="height: 100%">
+  <div style="height: 100%" class="w-64 mt-0 shadow-md">
+    <div class="mt-6 ml-7 cursor-pointer border-1 border-purple-900">
+      <mat-form-field appearance="fill">
+        <mat-label class="text-purple-900">Fashions</mat-label>
+        <mat-select disableRipple>
+          <div class="item hover:text-purple-900">
+            <!-- <div (click)="allProducts()">
+                <mat-option value="1">All Products</mat-option>
+              </div> -->
+            <div (click)="filter('men\'s clothing')">
+              <mat-option value="1">Men's Wear</mat-option>
+            </div>
+            <div (click)="filter('women\'s clothing')">
+              <mat-option value="2">Women's Wear</mat-option>
+            </div>
+          </div>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="ml-10 mt-5">
+    <div class="grid lg:grid-cols-3 gap-10">
+      <ng-container *ngFor="let item of filterCategory">
+        <div id="card" class="shadow-lg rounded-md cursor-pointer">
+          <div class="flex">
+            <div>
+              <img
+                style="
+                  width: 200px;
+                  height: 200px;
+                  margin-bottom: 15px;
+                  transition: 0.3s ease-in-out;
+                "
+                src="{{ item.image }}"
+                alt=""
+              />
+            </div>
+            <div class="mt-24 ml-10">
+              <h5>{{ item.title }}</h5>
+              <p class="text-red-700 mt-3">$ {{ item.price }}</p>
+            </div>
+          </div>
+          <button
+            (click)="addToCart(item)"
+            class="border-2 bg-purple-900 text-white rounded-3xl p-2 mb-8"
+          >
+            Add to Cart
+          </button>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>
